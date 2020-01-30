@@ -753,20 +753,3 @@ describe('wrapping a specific element', function () {
     expect(spy.args[0][1]).to.equal('a', 'second argument should be key combo');
   });
 });
-
-describe('Mouestrap.addKeycodes', function () {
-  it('should properly recognize non-default mapping', function () {
-    const spy = sinon.spy();
-
-    Mousetrap.addKeycodes({
-      144: 'num',
-    });
-
-    Mousetrap.bind('num', spy);
-
-    KeyEvent.simulate(144, 144);
-    expect(spy.callCount).to.equal(1, 'callback should fire for num');
-
-    spy.resetHistory();
-  });
-});
